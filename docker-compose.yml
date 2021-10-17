@@ -1,5 +1,5 @@
 version: "3"
 services: 
-  Postman-Student-Helper:
+  postman-student-helper:
     build: .
     restart: on-failure

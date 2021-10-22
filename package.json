@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.2.0",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "memejs": "^2.0.1"
   },
   "devDependencies": {
     "ts-node": "^10.3.0",

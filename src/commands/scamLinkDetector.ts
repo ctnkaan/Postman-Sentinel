@@ -4,7 +4,7 @@ module.exports = {
     run: (msg: any) => {
         
         if (
-        (msg.content.toLowerCase().includes("nitro") && msg.content.toLowerCase().includes("free")) || 
+        (msg.content.toLowerCase().includes("nitro") || 
          msg.content.toLowerCase().includes("i leave from cs:go")
         ) {
             msg.delete();

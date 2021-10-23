@@ -8,7 +8,8 @@ const Bot = new Discord.Client();
 
 //commands
 const ScamDetector = require('./commands/scamLinkDetector');
-const Faq = require('./commands/programs');
+const Programs = require('./commands/programs');
+const Translate = require('./commands/translate');
 
 //Prefix
 const prefix = "!p" 
@@ -29,12 +30,15 @@ Bot.on("message", (message: any) => {
     
     switch (command) {
         case "programs":
-            Faq.run(message, Discord);
+            Programs.run(message, Discord);
+            break;
+        
+        case "translate":
+            Translate.run(message, Discord, command, args);
             break;
 
-
         default:
-            message.channel.send("Command not found");
+            message.channel.send("Command not found :/");
     }
 });
 

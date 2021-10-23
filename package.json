@@ -11,6 +11,7 @@
   "author": "Çetin Kaan Taşkıngenç",
   "license": "ISC",
   "dependencies": {
+    "bing-translate-api": "^2.2.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
     "memejs": "^2.0.1"

@@ -35,7 +35,8 @@ Bot.on("message", (message: any) => {
             break;
         
         case "translate":
-            Translate.run(message, Discord, args);
+            //Translate.run(message, Discord, args);
+            message.channel.send("Translate command is under maintenance");
             break;
 
         case "help":

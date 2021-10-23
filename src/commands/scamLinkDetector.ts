@@ -1,13 +1,14 @@
 module.exports = {
     name: "scamLinkDetector",
-    run: (message: any) => {
+    description: "Detects scam links",
+    run: (msg: any) => {
         
         if (
-            (message.content.toLowerCase().includes("nitro") ||
-            message.content.toLowerCase().includes("i leave from cs:go"))
+        (msg.content.toLowerCase().includes("nitro") && msg.content.toLowerCase().includes("free")) || 
+         msg.content.toLowerCase().includes("i leave from cs:go")
         ) {
-            message.delete();
-            message.channel.send(`A suspicious message has been deleted!\nSorry but the word "Nitro" is banned because of the scams going on.`);
+            msg.delete();
+            msg.channel.send(`A suspicious message has been deleted!`);
         }
     }
 }

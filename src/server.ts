@@ -2,13 +2,13 @@
 
 import dotenv from 'dotenv';
 dotenv.config();
-const { Client, Intents } = require("discord.js");
-const Bot = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
-const fs = require('fs');
+const Discord = require('discord.js');
+const Bot = new Discord.Client();
 
 
+//commands
 const ScamDetector = require('./commands/scamLinkDetector');
-const Faq = require('./commands/faq');
+const Faq = require('./commands/programs');
 
 //Prefix
 const prefix = "!p" 
@@ -18,19 +18,20 @@ Bot.on("ready", () => {
     Bot.user.setActivity("<> with ❤️ by Postman Student Leaders");
 });
 
-Bot.on("messageCreate", (message: any) => {
-
+Bot.on("message", (message: any) => {
     ScamDetector.run(message);
 
     if ((!message.content.startsWith(prefix)) || message.author.bot) return;
-
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    console.log(command);
+    
     switch (command) {
-        case "faq":
-            Faq.run(message);
+        case "programs":
+            Faq.run(message, Discord);
             break;
+
 
         default:
             message.channel.send("Command not found");

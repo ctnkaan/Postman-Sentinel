@@ -2,8 +2,8 @@ const { translate } = require('bing-translate-api');
 
 module.exports = {
     name: "translate",
-    description: "Translate a message to another language",
-    async run(message :any, Discord :any, command :any, args :any) {
+    description: "Translate a message from another language to English",
+    async run(message :any, Discord :any, args :String) {
 
         if (message.author.bot) return;
 

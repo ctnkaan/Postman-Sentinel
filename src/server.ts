@@ -10,6 +10,7 @@ const Bot = new Discord.Client();
 const ScamDetector = require('./commands/scamLinkDetector');
 const Programs = require('./commands/programs');
 const Translate = require('./commands/translate');
+const Help = require('./commands/help');
 
 //Prefix
 const prefix = "!p" 
@@ -34,7 +35,11 @@ Bot.on("message", (message: any) => {
             break;
         
         case "translate":
-            Translate.run(message, Discord, command, args);
+            Translate.run(message, Discord, args);
+            break;
+
+        case "help":
+            Help.run(message, Discord);
             break;
 
         default:

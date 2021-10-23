@@ -1,5 +1,6 @@
 module.exports = {
     name: "programs",
+	description: "List all programs",
     run(message: any, Discord: any) {
         const msg = new Discord.MessageEmbed()
 			.setColor('#c7651a')

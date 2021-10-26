@@ -14,7 +14,7 @@
     "bing-translate-api": "^2.2.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
-    "memejs": "^2.0.1"
+    "memejs": "^1.2.3"
   },
   "devDependencies": {
     "@types/node": "^16.11.4",

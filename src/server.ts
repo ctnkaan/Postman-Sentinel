@@ -3,7 +3,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 const Discord = require('discord.js');
-const Bot = new Discord.Client();
+const client = new Discord.Client();
 
 
 //commands
@@ -15,15 +15,19 @@ const Help = require('./commands/help');
 //Prefix
 const prefix = "!p" 
 
-Bot.on("ready", () => {
+client.on("ready", () => {
     console.log("I am ready!");
-    Bot.user.setActivity("<> with ❤️ by Postman Student Leaders");
+    client.user.setActivity("<> with ❤️ by Postman Student Leaders");
 });
 
-Bot.on("message", (message: any) => {
-    ScamDetector.run(message);
+client.on("message", (message: any) => {
 
-    if ((!message.content.startsWith(prefix)) || message.author.bot) return;
+    if (message.author.bot) return;
+    
+    ScamDetector.run(message, client);
+
+    if (!message.content.startsWith(prefix)) return;
+
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
@@ -49,4 +53,4 @@ Bot.on("message", (message: any) => {
 });
 
 
-Bot.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN);

@@ -1,5 +1,6 @@
 const Programs = require('./programs');
 const Translate = require('./translate');
+const Meme = require('./meme');
 
 module.exports = { 
     name: "help",
@@ -24,6 +25,10 @@ module.exports = {
                 name: "!p " + Translate.name + " <text>",
                 value: Translate.description,
             },
+            {
+                name: "!p" + Meme.name,
+                value: Meme.description,
+            }
         )
         .setTimestamp()
         .setFooter(

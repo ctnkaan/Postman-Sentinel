@@ -19,7 +19,7 @@ const prefix = "!p"
 
 client.on("ready", () => {
     console.log("I am ready!");
-    client.user.setActivity("<> with ❤️ by Postman Student Leaders");
+    client.user.setActivity("!p help");
 });
 
 client.on("message", (message: any) => {

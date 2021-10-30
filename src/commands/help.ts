@@ -26,7 +26,7 @@ module.exports = {
                 value: Translate.description,
             },
             {
-                name: "!p" + Meme.name,
+                name: "!p " + Meme.name,
                 value: Meme.description,
             }
         )

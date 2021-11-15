@@ -51,6 +51,7 @@ Be sure to not commit directly to the main. Happy coding !
 - `!p translate <text>` -> Translate a message from another language to English 
 - `!p help`-> Displays all commands
 - `!p programs` -> List all programs
+- `!p meme` -> Send a coding meme from Reddit
 
 #### Silent Commands
 - `Scam Detection` -> Every message is scanned for scams

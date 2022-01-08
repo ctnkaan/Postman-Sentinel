@@ -55,6 +55,7 @@ Be sure to not commit directly to the main. Happy coding !
 
 #### Silent Commands
 - `Scam Detection` -> Every message is scanned for scams
+- `Non Gender Netural Words Detection` -> Every message is scanned for words like 'guys', 'dude', 'bro', etc..
 
 ## Contributors :
 

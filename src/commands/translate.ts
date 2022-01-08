@@ -1,4 +1,4 @@
-const { translate } = require('bing-translate-api');
+const { translate } = require("./bing-translate-api");
 
 module.exports = {
     name: "translate",

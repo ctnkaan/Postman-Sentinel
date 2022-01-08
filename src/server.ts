@@ -13,6 +13,7 @@ const Programs = require('./commands/programs');
 const Translate = require('./commands/translate');
 const Help = require('./commands/help');
 const Meme = require('./commands/meme');
+const GenderNeutralTerms = require('./commands/GenderNeutralTerms');
 
 //Prefix
 const prefix = "!p" 
@@ -27,6 +28,7 @@ client.on("message", (message: any) => {
     if (message.author.bot) return;
     
     ScamDetector.run(message, client);
+    GenderNeutralTerms.run(message, Discord);
 
     if (!message.content.startsWith(prefix)) return;
 

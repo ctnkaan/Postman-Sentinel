@@ -40,11 +40,10 @@ Be sure to not commit directly to the main. Happy coding !
 ### Setting Up The Application
 
 1. Clone the project with `git clone` and `cd` into it
-2. change the name of `.sampledotenv` to `.env`
-3. Get your secret key from [Discord Developer Portal](https://discord.com/developers/applications) and put it in the `.env`
-4. Run `yarn install` or `npm install`
-5. At `node_modules\bing-translate-api\src\index.js (line 128)` add `.toString().`before the `.trim().`
-6. You are good to go! Now you can start the project by typing `yarn start` or `npm start` to your command line
+1. Copy the env vars: `cp .sampledotenv .env`
+1. Get your secret key from [Discord Developer Portal](https://discord.com/developers/applications) and put it in the `.env` file as the value for `DISCORD_TOKEN`
+1. Run `yarn install`
+1. You are good to go! Now you can start the project by typing `yarn start`
 
 ## Commands
 

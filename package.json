@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "start": "tsc -p tsconfig.json && ts-node src/server.ts",
-    "build": "tsc -p tsconfig.json"
+    "start": "ts-node src/server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Çetin Kaan Taşkıngenç",

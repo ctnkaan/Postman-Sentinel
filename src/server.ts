@@ -19,8 +19,9 @@ const client = new Discord.Client();
 const prefix = "!p";
 
 client.on("ready", () => {
-    console.log("I am ready!");
-    client.user && client.user.setActivity("!p help");
+    if (!client.user) return; // to appease typescript. In reality, this will never happen
+    console.log(`I am ready! Logged in as ${client.user.tag}`);
+    client.user.setActivity(`${prefix} help`);
 });
 
 client.on("message", (message: any) => {

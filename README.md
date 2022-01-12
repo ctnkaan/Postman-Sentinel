@@ -4,13 +4,14 @@
 		<p align="center">
 			<b>This is the main repository of the Postman Student Helper Discord Bot. </b> 
 		</p>  
-</p>   
+</p>
 
 ## About :
 
 Postman Student Helper is a Discord Bot developed by Postman Student Leaders. It's main aims are to help make the Postman Student Community Discord a better place by using moderation and fun commands !
 
 ## Note to all developers
+
 Be sure to not commit directly to the main. Happy coding !
 
 ## Prerequisites
@@ -48,14 +49,16 @@ Be sure to not commit directly to the main. Happy coding !
 ## Commands
 
 #### Active Commands
-- `!p translate <text>` -> Translate a message from another language to English 
-- `!p help`-> Displays all commands
-- `!p programs` -> List all programs
-- `!p meme` -> Send a coding meme from Reddit
+
+-   `!p translate <text>` -> Translate a message from another language to English
+-   `!p help`-> Displays all commands
+-   `!p programs` -> List all programs
+-   `!p meme` -> Send a coding meme from Reddit
 
 #### Silent Commands
-- `Scam Detection` -> Every message is scanned for scams
-- `Non Gender Netural Words Detection` -> Every message is scanned for words like 'guys', 'dude', 'bro', etc..
+
+-   `Scam Detection` -> Every message is scanned for scams
+-   `Non Gender Netural Words Detection` -> Every message is scanned for words like 'guys', 'dude', 'bro', etc..
 
 ## Contributors :
 

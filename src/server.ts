@@ -1,33 +1,33 @@
 //<> with ❤️ by Postman Student Leaders
 
-import dotenv from 'dotenv';
-import { meme } from 'memejs';
-dotenv.config();
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
+import Discord from "discord.js";
 
 //commands
-const ScamDetector = require('./commands/scamLinkDetector');
-const Programs = require('./commands/programs');
-const Translate = require('./commands/translate');
-const Help = require('./commands/help');
-const Meme = require('./commands/meme');
-const GenderNeutralTerms = require('./commands/GenderNeutralTerms');
+import ScamDetector from "./commands/scamLinkDetector";
+import Programs from "./commands/programs";
+import Translate from "./commands/translate";
+import Help from "./commands/help";
+import Meme from "./commands/meme";
+import GenderNeutralTerms from "./commands/GenderNeutralTerms";
+
+import dotenv from "dotenv";
+dotenv.config();
+
+const client = new Discord.Client();
 
 //Prefix
-const prefix = "!p" 
+const prefix = "!p";
 
 client.on("ready", () => {
-    console.log("I am ready!");
-    client.user.setActivity("!p help");
+    if (!client.user) return; // to appease typescript. In reality, this will never happen
+    console.log(`I am ready! Logged in as ${client.user.tag}`);
+    client.user.setActivity(`${prefix} help`);
 });
 
 client.on("message", (message: any) => {
-
     if (message.author.bot) return;
-    
-    ScamDetector.run(message, client);
+
+    ScamDetector.run(message);
     GenderNeutralTerms.run(message, Discord);
 
     if (!message.content.startsWith(prefix)) return;
@@ -35,12 +35,11 @@ client.on("message", (message: any) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    
     switch (command) {
         case "programs":
             Programs.run(message, Discord);
             break;
-        
+
         case "translate":
             Translate.run(message, Discord, args);
             break;
@@ -57,6 +56,5 @@ client.on("message", (message: any) => {
             message.channel.send("Command not found :/");
     }
 });
-
 
 client.login(process.env.DISCORD_TOKEN);

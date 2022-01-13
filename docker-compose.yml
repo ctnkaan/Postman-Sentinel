@@ -1,5 +1,5 @@
 version: "3"
-services: 
-  psh-service:
-    build: .
-    restart: on-failure
+services:
+    psh-service:
+        build: .
+        restart: on-failure

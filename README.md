@@ -4,13 +4,14 @@
 		<p align="center">
 			<b>This is the main repository of the Postman Student Helper Discord Bot. </b> 
 		</p>  
-</p>   
+</p>
 
 ## About :
 
 Postman Student Helper is a Discord Bot developed by Postman Student Leaders. It's main aims are to help make the Postman Student Community Discord a better place by using moderation and fun commands !
 
 ## Note to all developers
+
 Be sure to not commit directly to the main. Happy coding !
 
 ## Prerequisites
@@ -39,23 +40,24 @@ Be sure to not commit directly to the main. Happy coding !
 ### Setting Up The Application
 
 1. Clone the project with `git clone` and `cd` into it
-2. change the name of `.sampledotenv` to `.env`
-3. Get your secret key from [Discord Developer Portal](https://discord.com/developers/applications) and put it in the `.env`
-4. Run `yarn install` or `npm install`
-5. At `node_modules\bing-translate-api\src\index.js (line 128)` add `.toString().`before the `.trim().`
-6. You are good to go! Now you can start the project by typing `yarn start` or `npm start` to your command line
+1. Copy the env vars: `cp .sampledotenv .env`
+1. Get your secret key from [Discord Developer Portal](https://discord.com/developers/applications) (make a bot for your app) and put it in the `.env` file as the value for `DISCORD_TOKEN`
+1. Run `yarn install`
+1. You are good to go! Now you can start the project by typing `yarn dev`
 
 ## Commands
 
 #### Active Commands
-- `!p translate <text>` -> Translate a message from another language to English 
-- `!p help`-> Displays all commands
-- `!p programs` -> List all programs
-- `!p meme` -> Send a coding meme from Reddit
+
+-   `!p translate <text>` -> Translate a message from another language to English
+-   `!p help`-> Displays all commands
+-   `!p programs` -> List all programs
+-   `!p meme` -> Send a coding meme from Reddit
 
 #### Silent Commands
-- `Scam Detection` -> Every message is scanned for scams
-- `Non Gender Netural Words Detection` -> Every message is scanned for words like 'guys', 'dude', 'bro', etc..
+
+-   `Scam Detection` -> Every message is scanned for scams
+-   `Non Gender Netural Words Detection` -> Every message is scanned for words like 'guys', 'dude', 'bro', etc..
 
 ## Contributors :
 

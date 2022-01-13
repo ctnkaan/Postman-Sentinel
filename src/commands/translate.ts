@@ -3,12 +3,14 @@ import { translate } from "bing-translate-api";
 export = {
     name: "translate",
     description: "Translate a message from another language to English",
-    async run(message: any, Discord: any, args: String) {
+    async run(message: any, Discord: any, args: string[]) {
         if (message.author.bot) return;
 
-        translate(args, null, "en", true)
+        const srcStr = args.join(" ");
+
+        translate(srcStr, null, "en", true)
             .then((res: { translation: string }) => {
-                if (res.translation == args) {
+                if (res.translation == srcStr) {
                     const msg = new Discord.MessageEmbed()
                         .setColor("#c7651a")
                         .setTitle("Translation Error")

@@ -1,7 +1,7 @@
 import { distance } from "fastest-levenshtein";
 
 /** Most spam links try to typosquat 'discord' to trick users into thinking the link is safe (ex: "discorde")*/
-const TYPOSQAUT_TARGET = "discord";
+const TYPOSQUAT_TARGET = "discord";
 
 function isSuspiciousLink(link, threshold = 3) {
     // get base domain
@@ -9,7 +9,7 @@ function isSuspiciousLink(link, threshold = 3) {
     if (!matches) return;
     const base = matches[1];
     // check levenshtein distance of domain to "discord"
-    const d = distance(TYPOSQAUT_TARGET, base);
+    const d = distance(TYPOSQUAT_TARGET, base);
     // if distance is > 0 and < threshold, base is typosquating. Call foul
     if (d > 0 && d <= threshold) {
         return true;

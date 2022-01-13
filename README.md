@@ -41,7 +41,7 @@ Be sure to not commit directly to the main. Happy coding !
 
 1. Clone the project with `git clone` and `cd` into it
 1. Copy the env vars: `cp .sampledotenv .env`
-1. Get your secret key from [Discord Developer Portal](https://discord.com/developers/applications) and put it in the `.env` file as the value for `DISCORD_TOKEN`
+1. Get your secret key from [Discord Developer Portal](https://discord.com/developers/applications) (make a bot for your app) and put it in the `.env` file as the value for `DISCORD_TOKEN`
 1. Run `yarn install`
 1. You are good to go! Now you can start the project by typing `yarn start`
 

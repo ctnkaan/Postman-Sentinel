@@ -4,6 +4,7 @@
     "description": "",
     "main": "src/server.ts",
     "scripts": {
+        "dev": "nodemon",
         "start": "ts-node src/server.ts",
         "build": "tsc",
         "format": "prettier --write ."
@@ -15,10 +16,12 @@
         "bing-translate-api": "^2.2.1",
         "discord.js": "^12.5.3",
         "dotenv": "^10.0.0",
+        "fastest-levenshtein": "^1.0.12",
         "memejs": "^1.2.3"
     },
     "devDependencies": {
         "@types/node": "^16.11.4",
+        "nodemon": "^2.0.15",
         "prettier": "^2.5.1",
         "ts-node": "^10.3.0",
         "typescript": "^4.4.4"

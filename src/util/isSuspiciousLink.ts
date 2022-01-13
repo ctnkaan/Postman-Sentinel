@@ -1,0 +1,3 @@
+function isSuspiciousLink() {}
+
+export { isSuspiciousLink };

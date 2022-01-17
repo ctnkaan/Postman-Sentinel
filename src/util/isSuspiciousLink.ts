@@ -3,7 +3,7 @@ import { distance } from "fastest-levenshtein";
 /** Most spam links try to typosquat 'discord' to trick users into thinking the link is safe (ex: "discorde")*/
 const TYPOSQUAT_TARGET = "discord";
 
-function isSuspiciousLink(link, threshold = 3) {
+function isSuspiciousLink(link, threshold = 4) {
     // get base domain
     const matches = link.match(/^https?:\/\/(\S+?)\./);
     if (!matches) return;

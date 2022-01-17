@@ -5,7 +5,7 @@ export = {
     description: "Detects scam links",
     run: (msg: any) => {
         /** Check for nitro */
-        var does_msg_include_spam:boolean = false;
+        let does_msg_include_spam:boolean = false;
         let spam_words: string[] = ["nitro","i leave from cs:go"];
         
         for(let spam_word of spam_words) {

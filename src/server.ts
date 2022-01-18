@@ -10,6 +10,7 @@ import Translate from "./commands/translate";
 import Help from "./commands/help";
 import Meme from "./commands/meme";
 import GenderNeutralTerms from "./commands/GenderNeutralTerms";
+import TotalAttacksBlocked from "./commands/totalAttacksBlocked";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -55,6 +56,10 @@ client.on("message", (message: any) => {
 
         case "meme":
             Meme.run(message, Discord);
+            break;
+
+        case "security":
+            TotalAttacksBlocked.run(message, Discord);
             break;
 
         default:

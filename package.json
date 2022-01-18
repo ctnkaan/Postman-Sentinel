@@ -17,7 +17,9 @@
         "discord.js": "^12.5.3",
         "dotenv": "^10.0.0",
         "fastest-levenshtein": "^1.0.12",
-        "memejs": "^1.2.3"
+        "memejs": "^1.2.3",
+        "mongodb": "^4.3.0",
+        "mongoose": "^6.1.7"
     },
     "devDependencies": {
         "@types/node": "^16.11.4",

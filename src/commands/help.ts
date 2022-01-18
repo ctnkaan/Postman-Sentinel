@@ -1,6 +1,7 @@
 import Programs from "./programs";
 import Translate from "./translate";
 import Meme from "./meme";
+import Security from "./totalAttacksBlocked";
 
 export = {
     name: "help",
@@ -27,6 +28,10 @@ export = {
                 {
                     name: "!p " + Meme.name,
                     value: Meme.description
+                },
+                {
+                    name: "!p " + Security.name,
+                    value: Security.description
                 }
             )
             .setTimestamp()

@@ -2,32 +2,31 @@ import { isSuspiciousLink } from "../util/isSuspiciousLink";
 import Schema from "../database/schema";
 
 
-let isScamLink :boolean = false;
 
 export = {
     name: "scamLinkDetector",
     description: "Detects scam links",
     run: (msg: any) => {
-        let does_msg_include_spam:boolean = false;
-        let spam_words: string[] = ["nitro","i leave from cs:go"];
-        
+        const banned_words: string[] = ["nitro","i leave from cs:go"];
+        let isScamLink :boolean = false;
+
         //search spam word in msg.content
-        for(let spam_word of spam_words) {
-            if(!does_msg_include_spam && msg.content.toLowerCase().includes(spam_word)) {
-                does_msg_include_spam = true;
+        for(let banned_word of banned_words) {
+            if(msg.content.toLowerCase().includes(banned_word)) {
+                isScamLink = true;
                 break;
             }
         }
+
+
         
-        if (does_msg_include_spam) {
+        if (isScamLink) {
             msg.author
                 .send(
                     "Word nitro is banned due to increase in scams. If you see multiple of these messages your account is probably infected."
                 )
                 .catch(console.error);
-            msg.delete().catch(console.error);
-            isScamLink = true;
-            
+            msg.delete().catch(console.error);            
         } else {
             /** Check for suspicious link in message */
             const links = msg.content.match(/(https?:\/\/\S+)\b/g);

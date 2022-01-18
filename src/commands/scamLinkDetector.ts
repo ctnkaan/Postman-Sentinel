@@ -4,11 +4,18 @@ export = {
     name: "scamLinkDetector",
     description: "Detects scam links",
     run: (msg: any) => {
-        /** Check for nitro */
-        if (
-            msg.content.toLowerCase().includes("nitro") ||
-            msg.content.toLowerCase().includes("i leave from cs:go")
-        ) {
+        let does_msg_include_spam:boolean = false;
+        let spam_words: string[] = ["nitro","i leave from cs:go"];
+        
+        //search spam word in msg.content
+        for(let spam_word of spam_words) {
+            if(!does_msg_include_spam && msg.content.toLowerCase().includes(spam_word)) {
+                does_msg_include_spam = true;
+                break;
+            }
+        }
+        
+        if (does_msg_include_spam) {
             msg.author
                 .send(
                     "Word nitro is banned due to increase in scams. If you see multiple of these messages your account is probably infected."

@@ -1,7 +1,7 @@
 import Schema from "../database/schema";
 
 export = {
-    name: "totalAttacksBlocked",
+    name: "security",
     description: "Displays the total number of attacks blocked",
     run(message: any, Discord: any) {
         

@@ -53,6 +53,7 @@ Be sure to not commit directly to the main. Happy coding !
 -   `!p help`-> Displays all commands
 -   `!p programs` -> List all programs
 -   `!p meme` -> Send a coding meme from Reddit
+-   `!p security` -> Display the current number of attacks blocked
 
 #### Silent Commands
 

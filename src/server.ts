@@ -31,11 +31,15 @@ client.on("ready", async () => {
 });
 
 client.on("message", (message: any) => {
+
+    //Ignore bot messages
     if (message.author.bot) return;
 
+    //Runs for every message
     ScamDetector.run(message);
     GenderNeutralTerms.run(message, Discord);
 
+    //If the message does not start with the prefix return
     if (!message.content.startsWith(prefix)) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);

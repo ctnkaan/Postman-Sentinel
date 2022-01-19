@@ -1,40 +1,32 @@
 import { isSuspiciousLink } from "../util/isSuspiciousLink";
 import Schema from "../database/schema";
 
-
-
 export = {
     name: "scamLinkDetector",
     description: "Detects scam links",
     run: (msg: any) => {
-        const banned_words: string[] = ["nitro","i leave from cs:go"];
-        let isScamLink :boolean = false;
+        const banned_words: string[] = ["nitro", "i leave from cs:go"];
+        let isScamLink: boolean = false;
 
         //search spam word in msg.content
-        for(let banned_word of banned_words) {
-            if(msg.content.toLowerCase().includes(banned_word)) {
+        for (let banned_word of banned_words) {
+            if (msg.content.toLowerCase().includes(banned_word)) {
                 isScamLink = true;
                 break;
             }
         }
 
-
-        
         if (isScamLink) {
             msg.author
                 .send(
                     "Word nitro is banned due to increase in scams. If you see multiple of these messages your account is probably infected."
                 )
                 .catch(console.error);
-            msg.delete().catch(console.error);            
+            msg.delete().catch(console.error);
         } else {
             /** Check for suspicious link in message */
             const links = msg.content.match(/(https?:\/\/\S+)\b/g);
             if (links) {
-                console.log(
-                    `INFO: Links detected in message from ${msg.author.username}} (ID: ${msg.author.id}): `,
-                    links
-                );
                 if (links && links.length) {
                     const suspiciousLinks: string[] = [];
                     links.forEach((l) => {
@@ -69,14 +61,14 @@ export = {
             try {
                 setTimeout(async () => {
                     await new Schema({
-                        id_username: msg.author.id + " - "+ msg.author.username,
+                        id_username:
+                            msg.author.id + " - " + msg.author.username,
                         message: msg.content
                     }).save();
                 }, 1000);
             } catch (error) {
                 console.log(error);
             }
-
         }
     }
 };

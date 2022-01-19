@@ -1,8 +1,12 @@
+import { MessageEmbed } from "discord.js";
+
 export = {
     name: "programs",
     description: "List all programs",
-    run(message: any, Discord: any) {
-        const msg = new Discord.MessageEmbed()
+    callback(message: any, args: string) {
+
+
+        const msg = new MessageEmbed()
             .setColor("#c7651a")
             .setTitle("Postman Student Community")
             .setURL("https://www.postman.com/company/student-program/")
@@ -33,6 +37,7 @@ export = {
                 'type "!p help" for more info!',
                 "https://i.imgur.com/ElCDWZb.png"
             );
-        message.channel.send(msg);
+            
+        message.channel.send({embeds: [msg]});
     }
 };

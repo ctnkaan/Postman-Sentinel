@@ -1,9 +1,10 @@
 import { translate } from "bing-translate-api";
+import { MessageEmbed } from "discord.js";
 
 export = {
     name: "translate",
     description: "Translate a message from another language to English",
-    async run(message: any, Discord: any, args: string[]) {
+    async callback(message: any, args: string[]) {
         if (message.author.bot) return;
 
         const srcStr = args.join(" ");
@@ -11,7 +12,7 @@ export = {
         translate(srcStr, null, "en", true)
             .then((res: { translation: string }) => {
                 if (res.translation == srcStr) {
-                    const msg = new Discord.MessageEmbed()
+                    const msg = new MessageEmbed()
                         .setColor("#c7651a")
                         .setTitle("Translation Error")
                         .setDescription(
@@ -22,9 +23,9 @@ export = {
                             'type "!p help" for more info!',
                             "https://i.imgur.com/ElCDWZb.png"
                         );
-                    message.channel.send(msg);
+                    message.channel.send({ embeds: [msg] });
                 } else {
-                    const msg = new Discord.MessageEmbed()
+                    const msg = new MessageEmbed()
                         .setColor("#c7651a")
                         .setTitle("Translation")
                         .setDescription(res.translation)
@@ -33,11 +34,11 @@ export = {
                             'type "!p help" for more info!',
                             "https://i.imgur.com/ElCDWZb.png"
                         );
-                    message.channel.send(msg);
+                    message.channel.send({ embeds: [msg] });
                 }
             })
             .catch((err: any) => {
-                const msg = new Discord.MessageEmbed()
+                const msg = new MessageEmbed()
                     .setColor("#c7651a")
                     .setTitle("Translation Error")
                     .setDescription(
@@ -48,9 +49,9 @@ export = {
                         'type "!p help" for more info!',
                         "https://i.imgur.com/ElCDWZb.png"
                     );
-                message.channel.send(msg);
-
+                
                 console.error(err);
+                message.channel.send({embeds: [msg]});
             });
     }
 };

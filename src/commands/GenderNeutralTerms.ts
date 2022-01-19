@@ -1,7 +1,9 @@
+import { MessageEmbed } from "discord.js";
+
 export = {
     name: "GenderNeutralTerms",
     description: "Warns users to use gender netural terms",
-    run: (message: any, Discord: any) => {
+    callback: (message: any) => {
         const currMsg = message.content.toLowerCase().split(" ");
 
         if (
@@ -9,7 +11,7 @@ export = {
             currMsg.includes("bro") ||
             currMsg.includes("dude")
         ) {
-            const msg = new Discord.MessageEmbed()
+            const msg = new MessageEmbed()
                 .setColor("#c7651a")
                 .setTitle("Please Try To Use Gender Neutral Terms ☺️")
                 .setURL("https://github.com/ctnkaan/Postman-Student-Helper")
@@ -27,7 +29,9 @@ export = {
                     'type "!p help" for more info!',
                     "https://i.imgur.com/ElCDWZb.png"
                 );
-            message.author.send(msg);
+
+                
+            message.author.send({embeds: [msg]});
         }
     }
 };

@@ -1,14 +1,15 @@
+import { MessageEmbed } from "discord.js";
 import Schema from "../database/schema";
 
 export = {
     name: "security",
     description: "Displays the total number of attacks blocked",
-    run(message: any, Discord: any) {
+    callback(message: any, args: string) {
         
-        Schema.countDocuments({}, function(err, count) {
-            if (err) { console.log(err)}
+        Schema.countDocuments({}, (err, count) => {
+            if (err) console.log(err)
             else {
-                const msg = new Discord.MessageEmbed()
+                const msg = new MessageEmbed()
                 .setColor("#c7651a")
                 .setTitle("Total Attacks Blocked")
                 .setURL("https://github.com/ctnkaan/Postman-Student-Helper")
@@ -24,12 +25,10 @@ export = {
                     "https://i.imgur.com/ElCDWZb.png"
                 );
 
-                message.channel.send(msg);
+                message.channel.send({embeds: [msg]});
             }
 
         })
-
-
 
     }
 };

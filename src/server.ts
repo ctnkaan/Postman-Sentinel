@@ -1,7 +1,9 @@
 //<> with ❤️ by Postman Student Leaders
 
-import Discord from "discord.js";
+import { Client, Collection } from "discord.js";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 //commands
 import ScamDetector from "./commands/scamLinkDetector";
@@ -12,13 +14,24 @@ import Meme from "./commands/meme";
 import GenderNeutralTerms from "./commands/GenderNeutralTerms";
 import TotalAttacksBlocked from "./commands/totalAttacksBlocked";
 
-import dotenv from "dotenv";
-dotenv.config();
+const client = new Client({
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+    intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS']
+});
 
-const client = new Discord.Client();
 
 //Prefix
 const prefix = "!p";
+
+//create hashmap for imported commands files
+const commands = new Map();
+
+commands.set("programs", Programs);
+commands.set("meme", Meme);
+commands.set("translate", Translate);
+commands.set("help", Help);
+commands.set("totalAttacksBlocked", TotalAttacksBlocked);
+
 
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
@@ -28,46 +41,31 @@ client.on("ready", async () => {
 
     console.log(`I am ready! Logged in as ${client.user.tag}`);
     client.user.setActivity(`${prefix} help`);
-});
+})
 
-client.on("message", (message: any) => {
+client.on("messageCreate", (message: any) => {
+
     //Ignore bot messages
     if (message.author.bot) return;
 
     //Runs for every message
-    ScamDetector.run(message);
-    GenderNeutralTerms.run(message, Discord);
+    ScamDetector.callback(message);
+    GenderNeutralTerms.callback(message);
 
     //If the message does not start with the prefix return
     if (!message.content.startsWith(prefix)) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+    const command :string = args.shift().toLowerCase();
 
-    switch (command) {
-        case "programs":
-            Programs.run(message, Discord);
-            break;
+    //Check if the command exists in the hashmap. It returns undefined if it doesn't exist
+    const currCommand = commands.get(command);
 
-        case "translate":
-            Translate.run(message, Discord, args);
-            break;
-
-        case "help":
-            Help.run(message, Discord);
-            break;
-
-        case "meme":
-            Meme.run(message, Discord);
-            break;
-
-        case "security":
-            TotalAttacksBlocked.run(message, Discord);
-            break;
-
-        default:
-            message.channel.send("Command not found :/");
-    }
+    //If the currCommand is not undefined, 
+    if (currCommand)
+        currCommand.callback(message, args.join(" "));
+    else
+        message.channel.send(`Command not found! Type ${prefix} help to see all commands`);
 });
 
 client.login(process.env.DISCORD_TOKEN);

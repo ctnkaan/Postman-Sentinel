@@ -2,12 +2,14 @@ import Programs from "./programs";
 import Translate from "./translate";
 import Meme from "./meme";
 import Security from "./totalAttacksBlocked";
+import { MessageEmbed } from "discord.js";
 
 export = {
     name: "help",
     description: "Displays all commands",
-    run(message: any, Discord: any) {
-        const msg = new Discord.MessageEmbed()
+    callback (message: any, args: string) {
+
+        const msg = new MessageEmbed()
             .setColor("#c7651a")
             .setTitle("Commands")
             .setURL("https://github.com/ctnkaan/Postman-Student-Helper")
@@ -32,6 +34,10 @@ export = {
                 {
                     name: "!p " + Security.name,
                     value: Security.description
+                },
+                {
+                    name: "!p help",
+                    value: "Displays all commands"
                 }
             )
             .setTimestamp()
@@ -39,6 +45,8 @@ export = {
                 'type "!p help" for more info!',
                 "https://i.imgur.com/ElCDWZb.png"
             );
-        message.channel.send(msg);
+
+        message.channel.send({embeds: [msg]});
     }
 };
+

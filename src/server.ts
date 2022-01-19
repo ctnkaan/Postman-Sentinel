@@ -15,10 +15,15 @@ import GenderNeutralTerms from "./commands/GenderNeutralTerms";
 import TotalAttacksBlocked from "./commands/totalAttacksBlocked";
 
 const client = new Client({
-    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-    intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS']
+    partials: ["MESSAGE", "CHANNEL", "REACTION"],
+    intents: [
+        "DIRECT_MESSAGES",
+        "DIRECT_MESSAGE_REACTIONS",
+        "GUILD_MESSAGES",
+        "GUILD_MESSAGE_REACTIONS",
+        "GUILDS"
+    ]
 });
-
 
 //Prefix
 const prefix = "!p";
@@ -32,7 +37,6 @@ commands.set("translate", Translate);
 commands.set("help", Help);
 commands.set("totalAttacksBlocked", TotalAttacksBlocked);
 
-
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
     await mongoose.connect(process.env.MONGO_URI!, {
@@ -41,10 +45,9 @@ client.on("ready", async () => {
 
     console.log(`I am ready! Logged in as ${client.user.tag}`);
     client.user.setActivity(`${prefix} help`);
-})
+});
 
 client.on("messageCreate", (message: any) => {
-
     //Ignore bot messages
     if (message.author.bot) return;
 
@@ -56,16 +59,17 @@ client.on("messageCreate", (message: any) => {
     if (!message.content.startsWith(prefix)) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command :string = args.shift().toLowerCase();
+    const command: string = args.shift().toLowerCase();
 
     //Check if the command exists in the hashmap. It returns undefined if it doesn't exist
     const currCommand = commands.get(command);
 
-    //If the currCommand is not undefined, 
-    if (currCommand)
-        currCommand.callback(message, args.join(" "));
+    //If the currCommand is not undefined,
+    if (currCommand) currCommand.callback(message, args.join(" "));
     else
-        message.channel.send(`Command not found! Type ${prefix} help to see all commands`);
+        message.channel.send(
+            `Command not found! Type ${prefix} help to see all commands`
+        );
 });
 
 client.login(process.env.DISCORD_TOKEN);

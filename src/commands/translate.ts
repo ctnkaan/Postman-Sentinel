@@ -49,9 +49,9 @@ export = {
                         'type "!p help" for more info!',
                         "https://i.imgur.com/ElCDWZb.png"
                     );
-                
+
                 console.error(err);
-                message.channel.send({embeds: [msg]});
+                message.channel.send({ embeds: [msg] });
             });
     }
 };

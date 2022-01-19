@@ -30,8 +30,7 @@ export = {
                     "https://i.imgur.com/ElCDWZb.png"
                 );
 
-                
-            message.author.send({embeds: [msg]});
+            message.author.send({ embeds: [msg] });
         }
     }
 };

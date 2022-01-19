@@ -7,8 +7,7 @@ import { MessageEmbed } from "discord.js";
 export = {
     name: "help",
     description: "Displays all commands",
-    callback (message: any, args: string) {
-
+    callback(message: any, args: string) {
         const msg = new MessageEmbed()
             .setColor("#c7651a")
             .setTitle("Commands")
@@ -46,7 +45,6 @@ export = {
                 "https://i.imgur.com/ElCDWZb.png"
             );
 
-        message.channel.send({embeds: [msg]});
+        message.channel.send({ embeds: [msg] });
     }
 };
-

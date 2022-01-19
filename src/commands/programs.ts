@@ -4,8 +4,6 @@ export = {
     name: "programs",
     description: "List all programs",
     callback(message: any, args: string) {
-
-
         const msg = new MessageEmbed()
             .setColor("#c7651a")
             .setTitle("Postman Student Community")
@@ -37,7 +35,7 @@ export = {
                 'type "!p help" for more info!',
                 "https://i.imgur.com/ElCDWZb.png"
             );
-            
-        message.channel.send({embeds: [msg]});
+
+        message.channel.send({ embeds: [msg] });
     }
 };

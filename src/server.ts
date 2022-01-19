@@ -1,7 +1,7 @@
 //<> with ❤️ by Postman Student Leaders
 
 import Discord from "discord.js";
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 //commands
 import ScamDetector from "./commands/scamLinkDetector";
@@ -23,7 +23,7 @@ const prefix = "!p";
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
     await mongoose.connect(process.env.MONGO_URI!, {
-        keepAlive: true,
+        keepAlive: true
     });
 
     console.log(`I am ready! Logged in as ${client.user.tag}`);
@@ -31,7 +31,6 @@ client.on("ready", async () => {
 });
 
 client.on("message", (message: any) => {
-
     //Ignore bot messages
     if (message.author.bot) return;
 

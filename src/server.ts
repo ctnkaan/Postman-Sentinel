@@ -14,6 +14,9 @@ import Meme from "./commands/meme";
 import GenderNeutralTerms from "./commands/GenderNeutralTerms";
 import TotalAttacksBlocked from "./commands/totalAttacksBlocked";
 
+//types
+import { MessageType } from "./types/message";
+
 const client = new Client({
     partials: ["MESSAGE", "CHANNEL", "REACTION"],
     intents: [
@@ -35,7 +38,7 @@ commands.set("programs", Programs);
 commands.set("meme", Meme);
 commands.set("translate", Translate);
 commands.set("help", Help);
-commands.set("totalAttacksBlocked", TotalAttacksBlocked);
+commands.set("security", TotalAttacksBlocked);
 
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
@@ -47,7 +50,7 @@ client.on("ready", async () => {
     client.user.setActivity(`${prefix} help`);
 });
 
-client.on("messageCreate", (message: any) => {
+client.on("messageCreate", (message: MessageType) => {
     //Ignore bot messages
     if (message.author.bot) return;
 
@@ -58,14 +61,18 @@ client.on("messageCreate", (message: any) => {
     //If the message does not start with the prefix return
     if (!message.content.startsWith(prefix)) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command: string = args.shift().toLowerCase();
+    const args: string[] = message.content
+        .slice(prefix.length)
+        .trim()
+        .split(/ +/g);
+
+    const command: string = args.shift()!.toLowerCase();
 
     //Check if the command exists in the hashmap. It returns undefined if it doesn't exist
     const currCommand = commands.get(command);
 
     //If the currCommand is not undefined,
-    if (currCommand) currCommand.callback(message, args.join(" "));
+    if (currCommand) currCommand.callback(message, args);
     else
         message.channel.send(
             `Command not found! Type ${prefix} help to see all commands`

@@ -1,12 +1,11 @@
 import { translate } from "bing-translate-api";
 import { MessageEmbed } from "discord.js";
+import { MessageType } from "../types/message";
 
 export = {
     name: "translate",
     description: "Translate a message from another language to English",
-    async callback(message: any, args: string[]) {
-        if (message.author.bot) return;
-
+    async callback(message: MessageType, args: any) {
         const srcStr = args.join(" ");
 
         translate(srcStr, null, "en", true)
@@ -18,22 +17,14 @@ export = {
                         .setDescription(
                             "The text is either already in English or I can't understand what language it is\nI can't Understand languages such as Hindi or Japanese in Latin Alphabet."
                         )
-                        .setTimestamp()
-                        .setFooter(
-                            'type "!p help" for more info!',
-                            "https://i.imgur.com/ElCDWZb.png"
-                        );
+                        .setTimestamp();
                     message.channel.send({ embeds: [msg] });
                 } else {
                     const msg = new MessageEmbed()
                         .setColor("#c7651a")
                         .setTitle("Translation")
                         .setDescription(res.translation)
-                        .setTimestamp()
-                        .setFooter(
-                            'type "!p help" for more info!',
-                            "https://i.imgur.com/ElCDWZb.png"
-                        );
+                        .setTimestamp();
                     message.channel.send({ embeds: [msg] });
                 }
             })
@@ -44,11 +35,7 @@ export = {
                     .setDescription(
                         "Please provide a non English text to translate"
                     )
-                    .setTimestamp()
-                    .setFooter(
-                        'type "!p help" for more info!',
-                        "https://i.imgur.com/ElCDWZb.png"
-                    );
+                    .setTimestamp();
 
                 console.error(err);
                 message.channel.send({ embeds: [msg] });

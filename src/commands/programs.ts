@@ -1,18 +1,14 @@
 import { MessageEmbed } from "discord.js";
+import { MessageType } from "../types/message";
 
 export = {
     name: "programs",
     description: "List all programs",
-    callback(message: any, args: string) {
+    callback(message: MessageType, args: string) {
         const msg = new MessageEmbed()
             .setColor("#c7651a")
             .setTitle("Postman Student Community")
             .setURL("https://www.postman.com/company/student-program/")
-            .setAuthor(
-                "Postman Student Helper",
-                "https://i.imgur.com/ElCDWZb.png",
-                "https://github.com/ctnkaan/Postman-Student-Helper"
-            )
             .setDescription(
                 "Discover our programs designed to promote API literacy amongst students and educators.."
             )
@@ -30,11 +26,7 @@ export = {
                     value: "https://www.postman.com/company/student-program/#postman-classroom-program"
                 }
             )
-            .setTimestamp()
-            .setFooter(
-                'type "!p help" for more info!',
-                "https://i.imgur.com/ElCDWZb.png"
-            );
+            .setTimestamp();
 
         message.channel.send({ embeds: [msg] });
     }

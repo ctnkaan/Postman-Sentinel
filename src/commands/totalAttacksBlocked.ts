@@ -1,10 +1,11 @@
 import { MessageEmbed } from "discord.js";
 import Schema from "../database/schema";
+import { MessageType } from "../types/message";
 
 export = {
     name: "security",
     description: "Displays the total number of attacks blocked",
-    callback(message: any, args: string) {
+    callback(message: MessageType, args: string) {
         Schema.countDocuments({}, (err, count) => {
             if (err) console.log(err);
             else {
@@ -12,17 +13,8 @@ export = {
                     .setColor("#c7651a")
                     .setTitle("Total Attacks Blocked")
                     .setURL("https://github.com/ctnkaan/Postman-Student-Helper")
-                    .setAuthor(
-                        "Postman Student Helper",
-                        "https://i.imgur.com/ElCDWZb.png",
-                        "https://github.com/ctnkaan/Postman-Student-Helper"
-                    )
                     .setDescription(count)
-                    .setTimestamp()
-                    .setFooter(
-                        'type "!p help" for more info!',
-                        "https://i.imgur.com/ElCDWZb.png"
-                    );
+                    .setTimestamp();
 
                 message.channel.send({ embeds: [msg] });
             }

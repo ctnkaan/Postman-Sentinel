@@ -6,14 +6,14 @@ export = {
     name: "security",
     description: "Displays the total number of attacks blocked",
     callback(message: MessageType, args: string) {
-        Schema.countDocuments({}, (err, count) => {
+        Schema.countDocuments({}, (err, count: number) => {
             if (err) console.log(err);
             else {
                 const msg = new MessageEmbed()
                     .setColor("#c7651a")
                     .setTitle("Total Attacks Blocked")
                     .setURL("https://github.com/ctnkaan/Postman-Student-Helper")
-                    .setDescription(count)
+                    .setDescription(count.toString())
                     .setTimestamp();
 
                 message.channel.send({ embeds: [msg] });

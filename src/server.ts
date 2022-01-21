@@ -40,6 +40,7 @@ commands.set("translate", Translate);
 commands.set("help", Help);
 commands.set("security", TotalAttacksBlocked);
 
+//When the bot is connected
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
     await mongoose.connect(process.env.MONGO_URI!, {
@@ -50,6 +51,7 @@ client.on("ready", async () => {
     client.user.setActivity(`${prefix} help`);
 });
 
+//When there is a message in server
 client.on("messageCreate", (message: MessageType) => {
     //Ignore bot messages
     if (message.author.bot) return;

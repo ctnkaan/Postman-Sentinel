@@ -1,6 +1,6 @@
-//<> with ❤️ by Postman Student Leaders
+//<> with ❤️ by Çetin Kaan Taşkıngenç & Postman Student Leaders
 
-import { Client, Collection } from "discord.js";
+import { Client } from "discord.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();

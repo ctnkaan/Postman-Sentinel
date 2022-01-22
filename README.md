@@ -8,7 +8,7 @@
 
 ## About :
 
-Postman Student Helper is a Discord Bot developed by Postman Student Leaders. It's main aims are to help make the Postman Student Community Discord a better place by using moderation and fun commands !
+Postman Student Helper is a Discord Bot developed by Çetin Kaan Taşkıngenç & Postman Student Leaders. It's main aims are to help make the Postman Student Community Discord a better place by using moderation and fun commands !
 
 ## Note to all developers
 

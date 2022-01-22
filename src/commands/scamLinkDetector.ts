@@ -56,6 +56,7 @@ export = {
             }
         }
 
+        //If the message is marked as scam link, add it to the database
         if (isScamLink) {
             try {
                 setTimeout(async () => {

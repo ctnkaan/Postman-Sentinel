@@ -18,11 +18,13 @@
         "dotenv": "^14.2.0",
         "fastest-levenshtein": "^1.0.12",
         "memejs": "^2.0.1",
+        "mongo-sanitize": "^1.1.0",
         "mongodb": "^4.3.1",
         "mongoose": "^6.1.7",
         "yarn-upgrade-all": "^0.6.1"
     },
     "devDependencies": {
+        "@types/mongo-sanitize": "^1.0.1",
         "@types/node": "^17.0.10",
         "nodemon": "^2.0.15",
         "prettier": "^2.5.1",

@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://i.imgur.com/ElCDWZb.png" width=400px height=300px>
+	<img src="./assets/icon.png" width=400px height=300px>
 	<h1 align="center"> Postman Student Helper </h1>
 		<p align="center">
 			<b>This is the main repository of the Postman Student Helper Discord Bot. </b> 

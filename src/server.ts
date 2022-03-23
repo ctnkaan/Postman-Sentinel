@@ -43,9 +43,9 @@ commands.set("security", TotalAttacksBlocked);
 //When the bot is connected
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
-    //await mongoose.connect(process.env.MONGO_URI!, {
-      //  keepAlive: true
-    //});
+    await mongoose.connect(process.env.MONGO_URI!, {
+        keepAlive: true
+    });
 
     console.log(`I am ready! Logged in as ${client.user.tag}`);
     client.user.setActivity(`${prefix} help`);

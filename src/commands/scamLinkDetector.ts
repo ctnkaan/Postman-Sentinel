@@ -7,7 +7,11 @@ export = {
     name: "scamLinkDetector",
     description: "Detects scam links",
     callback: (message: MessageType) => {
-        const banned_words: string[] = ["nitro", "i leave from cs:go"];
+        const banned_words: string[] = [
+            "nitro",
+            "i leave from cs:go",
+            "mediafire"
+        ];
         let isScamLink: boolean = false;
 
         //search spam word in message.content
@@ -31,6 +35,8 @@ export = {
                     const suspiciousLinks: string[] = [];
                     links.forEach((l) => {
                         const isSus = isSuspiciousLink(l);
+                        console.log(l, isSus);
+
                         if (isSus) {
                             suspiciousLinks.push(l);
                         }

@@ -48,7 +48,7 @@ client.on("ready", async () => {
     });
 
     console.log(`I am ready! Logged in as ${client.user.tag}`);
-    client.user.setActivity(`${prefix} help`);
+    client.user.setActivity(`${prefix}help`);
 });
 
 //When there is a message in server

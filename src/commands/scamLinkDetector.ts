@@ -10,7 +10,8 @@ export = {
         const banned_words: string[] = [
             "nitro",
             "i leave from cs:go",
-            "mediafire"
+            "mediafire",
+            "skyblade"
         ];
         let isScamLink: boolean = false;
 
@@ -24,7 +25,7 @@ export = {
 
         if (isScamLink) {
             message.author.send(
-                "Word nitro is banned due to increase in scams. If you see multiple of these messages your account is probably infected."
+                "Word you used is banned due to increase in scams. If you see multiple of these messages your account is probably infected."
             );
             message.delete();
         } else {
@@ -37,7 +38,16 @@ export = {
                         const isSus = isSuspiciousLink(l);
                         console.log(l, isSus);
 
+
+                        //get the last 3 characters of the link
+                        const last3 = l.substring(l.length - 4);
+                        console.log(last3);
+
                         if (isSus) {
+                            suspiciousLinks.push(l);
+                        }
+
+                        else if (last3 == ".exe" || last3 == ".zip" || last3 == ".rar") {
                             suspiciousLinks.push(l);
                         }
                     });

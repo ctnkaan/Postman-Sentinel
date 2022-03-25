@@ -2,7 +2,7 @@ import { distance } from "fastest-levenshtein";
 import config from "../config";
 
 /** Most spam links try to typosquat 'discord' to trick users into thinking the link is safe (ex: "discorde")*/
-const TYPOSQUAT_TARGET = ["discord", "github", "steam"];
+const TYPOSQUAT_TARGET = ["discord", "github"];
 let susometer = false;
 
 function isSuspiciousLink(link: string, threshold = 4) {

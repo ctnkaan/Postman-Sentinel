@@ -1,4 +1,4 @@
 export = {
     // These base domains are legitimate
-    whitelist: ["discordjs", "store"]
+    whitelist: ["discordjs", "store", "youtube"]
 };

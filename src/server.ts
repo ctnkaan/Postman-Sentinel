@@ -16,6 +16,7 @@ import TotalAttacksBlocked from "./commands/totalAttacksBlocked";
 
 //types
 import { MessageType } from "./types/message";
+import ProjectIdeas from "./commands/projectIdeas";
 
 const client = new Client({
     partials: ["MESSAGE", "CHANNEL", "REACTION"],
@@ -39,13 +40,14 @@ commands.set("meme", Meme);
 commands.set("translate", Translate);
 commands.set("help", Help);
 commands.set("security", TotalAttacksBlocked);
+commands.set("project", ProjectIdeas);
 
 //When the bot is connected
 client.on("ready", async () => {
     if (!client.user) return; // to appease typescript. In reality, this will never happen
-    await mongoose.connect(process.env.MONGO_URI!, {
-        keepAlive: true
-    });
+    //await mongoose.connect(process.env.MONGO_URI!, {
+      //  keepAlive: true
+    //});
 
     console.log(`I am ready! Logged in as ${client.user.tag}`);
     client.user.setActivity(`${prefix}help`);
@@ -72,6 +74,9 @@ client.on("messageCreate", (message: MessageType) => {
 
     //Check if the command exists in the hashmap. It returns undefined if it doesn't exist
     const currCommand = commands.get(command);
+
+    console.log(currCommand);
+    
 
     //If the currCommand is not undefined,
     if (currCommand) currCommand.callback(message, args);

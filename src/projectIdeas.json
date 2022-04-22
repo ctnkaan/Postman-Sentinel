@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Weather App",
+        "description": "A weather app that shows the current weather of a entered city and the forecast for the next 5 days.",
+        "requirements": ["API Knowledge", "\nOpenWeatherMap", "\nA back-end lagnuage like Node.js", "\nA front-end language like React"]
+    }
+]

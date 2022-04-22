@@ -3,7 +3,7 @@ import { MessageType } from "../types/message";
 import { MessageEmbed } from "discord.js";
 
 export = {
-    name: "project Ideas",
+    name: "project",
     description: "Displays ideas for your next project",
     callback(message: MessageType, args: string) {
 

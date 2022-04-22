@@ -2,6 +2,7 @@ import Programs from "./programs";
 import Translate from "./translate";
 import Meme from "./meme";
 import Security from "./totalAttacksBlocked";
+import ProjectIdeas from "./projectIdeas";
 import { MessageType } from "../types/message";
 import { MessageEmbed } from "discord.js";
 
@@ -29,6 +30,10 @@ export = {
                 {
                     name: "!p " + Security.name,
                     value: Security.description
+                },
+                {
+                    name: "!p " + ProjectIdeas.name,
+                    value: ProjectIdeas.description
                 },
                 {
                     name: "!p help",

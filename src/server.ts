@@ -1,4 +1,4 @@
-//<> with ❤️ by Çetin Kaan Taşkıngenç & Postman Student Leaders
+//<> with ❤️ by Çetin Kaan Taşkıngenç & Claire Froelich
 
 import { Client } from "discord.js";
 import mongoose from "mongoose";
@@ -65,25 +65,24 @@ client.on("messageCreate", (message: MessageType) => {
     //If the message does not start with the prefix return
     if (!message.content.startsWith(prefix)) return;
 
+    //get the message content without the prefix
     const args: string[] = message.content
         .slice(prefix.length)
         .trim()
         .split(/ +/g);
 
+    //get the command
     const command: string = args.shift()!.toLowerCase();
 
     //Check if the command exists in the hashmap. It returns undefined if it doesn't exist
     const currCommand = commands.get(command);
-
-    console.log(currCommand);
     
 
     //If the currCommand is not undefined,
-    if (currCommand) currCommand.callback(message, args);
+    if (currCommand) 
+        currCommand.callback(message, args);
     else
-        message.channel.send(
-            `Command not found! Type ${prefix} help to see all commands`
-        );
+        message.channel.send(`Command not found! Type ${prefix} help to see all commands`);
 });
 
 client.login(process.env.DISCORD_TOKEN);

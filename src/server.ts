@@ -13,6 +13,7 @@ import Help from "./commands/help";
 import Meme from "./commands/meme";
 import GenderNeutralTerms from "./commands/GenderNeutralTerms";
 import TotalAttacksBlocked from "./commands/totalAttacksBlocked";
+import Pets from "./commands/pets";
 
 //types
 import { MessageType } from "./types/message";
@@ -41,6 +42,7 @@ commands.set("translate", Translate);
 commands.set("help", Help);
 commands.set("security", TotalAttacksBlocked);
 commands.set("project", ProjectIdeas);
+commands.set("pets", Pets);
 
 //When the bot is connected
 client.on("ready", async () => {

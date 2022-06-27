@@ -5,6 +5,7 @@ import Security from "./totalAttacksBlocked";
 import ProjectIdeas from "./projectIdeas";
 import { MessageType } from "../types/message";
 import { MessageEmbed } from "discord.js";
+import Pets from "./pets";
 
 export = {
     name: "help",
@@ -34,6 +35,10 @@ export = {
                 {
                     name: "!p " + ProjectIdeas.name,
                     value: ProjectIdeas.description
+                },
+                {
+                    name: "!p " + Pets.name,
+                    value: Pets.description
                 },
                 {
                     name: "!p help",

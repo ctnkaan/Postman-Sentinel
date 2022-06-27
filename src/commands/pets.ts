@@ -4,35 +4,36 @@ import { MessageType } from "../types/message";
 import { MemeType } from "../types/meme";
 
 export = {
-    name: "meme",
-    description: "Generates a meme",
+    name: "pets",
+    description: "Generates a cute pet image",
     callback(message: MessageType, args: string) {
-        meme("programmerhumor")
+        meme("cats")
             .then((data: MemeType) => {
 
                 const msg = new MessageEmbed()
                     .setColor("#c7651a")
                     .setTitle(data.title)
                     .setImage(data.url)
-                    .setTimestamp();
+                    .setTimestamp()
 
                 message.channel.send({ embeds: [msg] });
             }) // Get the JSON output
             .catch((e) => {
                 console.log(e);
-                meme("programmerhumor")
+                meme("cats")
                     .then((data) => {
+                        
                         const msg = new MessageEmbed()
                             .setColor("#c7651a")
                             .setTitle(data.title)
                             .setImage(data.url)
-                            .setTimestamp();
+                            .setTimestamp()
 
                         message.channel.send({ embeds: [msg] });
                     })
                     .catch((e) =>
                         message.channel.send(
-                            "Sorry I could not find any memes. Would you like to try again?"
+                            "Sorry I could not find any pictures. Would you like to try again?"
                         )
                     );
             }); // Handle any errors

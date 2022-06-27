@@ -18,7 +18,7 @@ export = {
             .addFields(
                 {
                     name: projectDescription,
-                    value: "Requirements: \n\n" +projectRequirements
+                    value: "\n\n"+projectRequirements
                 },
             )
             .setTimestamp();

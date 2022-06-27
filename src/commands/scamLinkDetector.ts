@@ -83,8 +83,8 @@ export = {
 
                 setTimeout(async () => {
                     await new Schema({
-                        id_username: cleanAuthorID + " - " + cleanAuthor,
-                        message: cleanMsg
+                        id_username: cleanAuthorID + " - " + cleanAuthor, //id and the username of the author
+                        message: cleanMsg //scam message
                     }).save();
                 }, 1000);
             } catch (error) {

@@ -50,6 +50,10 @@ export = {
                         else if (last3 == ".exe" || last3 == ".zip" || last3 == ".rar") {
                             suspiciousLinks.push(l);
                         }
+
+                        else if (l.toLowerCase().includes("discord")) {
+                            suspiciousLinks.push(l);
+                        }
                     });
                     if (suspiciousLinks.length) {
                         console.log(

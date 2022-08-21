@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import Schema from "../database/schema";
 import { MessageType } from "../types/message";
 
@@ -9,7 +9,7 @@ export = {
         Schema.countDocuments({}, (err, count: number) => {
             if (err) console.log(err);
             else {
-                const msg = new MessageEmbed()
+                const msg = new EmbedBuilder()
                     .setColor("#c7651a")
                     .setTitle("Total Attacks Blocked")
                     .setURL("https://github.com/ctnkaan/Postman-Student-Helper")

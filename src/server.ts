@@ -1,6 +1,6 @@
 //<> with ❤️ by Çetin Kaan Taşkıngenç & Claire Froelich
 
-import { Client } from "discord.js";
+import { Client, GatewayIntentBits, Partials } from "discord.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
@@ -19,16 +19,16 @@ import Pets from "./commands/pets";
 import { MessageType } from "./types/message";
 import ProjectIdeas from "./commands/projectIdeas";
 
-const client = new Client({
-    partials: ["MESSAGE", "CHANNEL", "REACTION"],
+const bot = new Client({
     intents: [
-        "DIRECT_MESSAGES",
-        "DIRECT_MESSAGE_REACTIONS",
-        "GUILD_MESSAGES",
-        "GUILD_MESSAGE_REACTIONS",
-        "GUILDS"
-    ]
-});
+        GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildBans,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+    ],
+    partials: [Partials.Channel],
+  });
 
 //Prefix
 const prefix = "!p";
@@ -45,18 +45,19 @@ commands.set("project", ProjectIdeas);
 commands.set("pets", Pets);
 
 //When the bot is connected
-client.on("ready", async () => {
-    if (!client.user) return; // to appease typescript. In reality, this will never happen
+bot.on("ready", async () => {
+    if (!bot.user) return; // to appease typescript. In reality, this will never happen
     await mongoose.connect(process.env.MONGO_URI!, {
         keepAlive: true
     });
 
-    console.log(`I am ready! Logged in as ${client.user.tag}`);
-    client.user.setActivity(`${prefix}help`);
+    console.log(`I am ready! Logged in as ${bot.user.tag}`);
+    bot.user.setActivity(`${prefix} help`);
 });
 
 //When there is a message in server
-client.on("messageCreate", (message: MessageType) => {
+bot.on("messageCreate", async (message: MessageType) => {
+
     //Ignore bot messages
     if (message.author.bot) return;
 
@@ -87,4 +88,4 @@ client.on("messageCreate", (message: MessageType) => {
         message.channel.send(`Command not found! Type ${prefix} help to see all commands`);
 });
 
-client.login(process.env.DISCORD_TOKEN);
+bot.login(process.env.DISCORD_TOKEN);

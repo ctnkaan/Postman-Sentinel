@@ -1,11 +1,11 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import { MessageType } from "../types/message";
 
 export = {
     name: "programs",
     description: "List all programs",
     callback(message: MessageType, args: string) {
-        const msg = new MessageEmbed()
+        const msg = new EmbedBuilder()
             .setColor("#c7651a")
             .setTitle("Postman Student Community")
             .setURL("https://www.postman.com/company/student-program/")

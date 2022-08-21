@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import { meme } from "memejs";
 import { MessageType } from "../types/message";
 import { MemeType } from "../types/meme";
@@ -10,7 +10,7 @@ export = {
         meme("cats")
             .then((data: MemeType) => {
 
-                const msg = new MessageEmbed()
+                const msg = new EmbedBuilder()
                     .setColor("#c7651a")
                     .setTitle(data.title)
                     .setImage(data.url)
@@ -23,7 +23,7 @@ export = {
                 meme("cats")
                     .then((data) => {
                         
-                        const msg = new MessageEmbed()
+                        const msg = new EmbedBuilder()
                             .setColor("#c7651a")
                             .setTitle(data.title)
                             .setImage(data.url)

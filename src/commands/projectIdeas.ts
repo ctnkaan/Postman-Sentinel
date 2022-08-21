@@ -1,6 +1,6 @@
 import Project from '../projectIdeas.json';
 import { MessageType } from "../types/message";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 export = {
     name: "project",
@@ -12,7 +12,7 @@ export = {
         const projectDescription = Project[randomValue].description;
         const projectRequirements = Project[randomValue].requirements.toString();
 
-        const msg = new MessageEmbed()
+        const msg = new EmbedBuilder()
             .setColor("#c7651a")
             .setTitle(projectName)
             .addFields(

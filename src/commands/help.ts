@@ -4,14 +4,14 @@ import Meme from "./meme";
 import Security from "./totalAttacksBlocked";
 import ProjectIdeas from "./projectIdeas";
 import { MessageType } from "../types/message";
-import { MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import Pets from "./pets";
 
 export = {
     name: "help",
     description: "Displays all commands",
     callback(message: MessageType, args: string) {
-        const msg = new MessageEmbed()
+        const msg = new EmbedBuilder()
             .setColor("#c7651a")
             .setTitle("Commands")
             .setURL("https://github.com/ctnkaan/Postman-Student-Helper")

@@ -15,8 +15,8 @@ export = {
                         .setColor("#c7651a")
                         .setTitle("Translation Error")
                         .setDescription(
-                            "The text is either already in English or I can't understand what language it is\n"+
-                            "I can't Understand languages such as Hindi or Japanese in Latin Alphabet."
+                            "The text is either already in English or I can't understand what language it is\n" +
+                                "I can't Understand languages such as Hindi or Japanese in Latin Alphabet."
                         )
                         .setTimestamp();
                     message.channel.send({ embeds: [msg] });

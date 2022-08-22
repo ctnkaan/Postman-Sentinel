@@ -2,12 +2,22 @@
     {
         "name": "Weather App",
         "description": "A weather app that shows the current weather of a entered city and the forecast for the next 5 days.",
-        "requirements": ["API Knowledge", "\nOpenWeatherMap", "\nA back-end language like Node.js", "\nA front-end Framework"]
+        "requirements": [
+            "API Knowledge",
+            "\nOpenWeatherMap",
+            "\nA back-end language like Node.js",
+            "\nA front-end Framework"
+        ]
     },
     {
         "name": "Todo App with Database",
         "description": "A todo app that allows you to add, delete, and edit tasks.",
-        "requirements": ["API Knowledge", "\nA back-end language like Node.js", "\nA front-end Framework", "\nDatabase knowledge"]
+        "requirements": [
+            "API Knowledge",
+            "\nA back-end language like Node.js",
+            "\nA front-end Framework",
+            "\nDatabase knowledge"
+        ]
     },
     {
         "name": "Calculator App",
@@ -22,16 +32,28 @@
     {
         "name": "Wikipedia App",
         "description": "A Wikipedia app that allows you to search for a Wikipedia article.",
-        "requirements": ["API Knowledge", "\nA back-end language like Node.js", "\nA front-end Framework"]
+        "requirements": [
+            "API Knowledge",
+            "\nA back-end language like Node.js",
+            "\nA front-end Framework"
+        ]
     },
     {
         "name": "Twitch App",
         "description": "A Twitch app that allows you to search for a Twitch stream.",
-        "requirements": ["API Knowledge", "\nA back-end language like Node.js", "\nA front-end Framework"]
+        "requirements": [
+            "API Knowledge",
+            "\nA back-end language like Node.js",
+            "\nA front-end Framework"
+        ]
     },
     {
         "name": "News App",
         "description": "A News app that allows you to search for a News article.",
-        "requirements": ["API Knowledge", "\nA back-end language like Node.js", "\nA front-end Framework"]
+        "requirements": [
+            "API Knowledge",
+            "\nA back-end language like Node.js",
+            "\nA front-end Framework"
+        ]
     }
 ]

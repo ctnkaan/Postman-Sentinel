@@ -38,20 +38,19 @@ export = {
                         const isSus = isSuspiciousLink(l);
                         console.log(l, isSus);
 
-
                         //get the last 3 characters of the link
                         const last3 = l.substring(l.length - 4);
                         console.log(last3);
 
                         if (isSus) {
                             suspiciousLinks.push(l);
-                        }
-
-                        else if (last3 == ".exe" || last3 == ".zip" || last3 == ".rar") {
+                        } else if (
+                            last3 == ".exe" ||
+                            last3 == ".zip" ||
+                            last3 == ".rar"
+                        ) {
                             suspiciousLinks.push(l);
-                        }
-
-                        else if (l.toLowerCase().includes("discord")) {
+                        } else if (l.toLowerCase().includes("discord")) {
                             suspiciousLinks.push(l);
                         }
                     });

@@ -20,23 +20,23 @@ const bot = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildBans,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.MessageContent
     ],
-    partials: [Partials.Channel],
-  });
+    partials: [Partials.Channel]
+});
 
 let commands = new Map();
 let silentCommands = new Map();
 
 //When the bot is connected
 bot.on("ready", async () => {
-  [commands, silentCommands] = CommandMap.execute(commands, silentCommands);
-  Ready.execute(bot, config.prefix);
+    [commands, silentCommands] = CommandMap.execute(commands, silentCommands);
+    Ready.execute(bot, config.prefix);
 });
 
 //When there is a message in server
 bot.on("messageCreate", async (message: MessageType) => {
-  MessageCreate.execute(message, commands, silentCommands, config.prefix);
+    MessageCreate.execute(message, commands, silentCommands, config.prefix);
 });
 
 bot.login(process.env.DISCORD_TOKEN);

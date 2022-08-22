@@ -9,12 +9,11 @@ export = {
     callback(message: MessageType, args: string) {
         meme("cats")
             .then((data: MemeType) => {
-
                 const msg = new EmbedBuilder()
                     .setColor("#c7651a")
                     .setTitle(data.title)
                     .setImage(data.url)
-                    .setTimestamp()
+                    .setTimestamp();
 
                 message.channel.send({ embeds: [msg] });
             }) // Get the JSON output
@@ -22,12 +21,11 @@ export = {
                 console.log(e);
                 meme("cats")
                     .then((data) => {
-                        
                         const msg = new EmbedBuilder()
                             .setColor("#c7651a")
                             .setTitle(data.title)
                             .setImage(data.url)
-                            .setTimestamp()
+                            .setTimestamp();
 
                         message.channel.send({ embeds: [msg] });
                     })

@@ -9,7 +9,6 @@ export = {
     callback(message: MessageType, args: string) {
         meme("programmerhumor")
             .then((data: MemeType) => {
-
                 const msg = new EmbedBuilder()
                     .setColor("#c7651a")
                     .setTitle(data.title)

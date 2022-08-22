@@ -4,7 +4,7 @@ import { MessageType } from "../types/message";
 export = {
     name: "GenderNeutralTerms",
     description: "Warns users to use gender netural terms",
-    
+
     callback: (message: MessageType) => {
         const currMsg = message.content.toLowerCase().split(" ");
 

@@ -10,19 +10,18 @@ import Pets from "../commands/pets";
 import ProjectIdeas from "../commands/projectIdeas";
 
 export = {
-  execute(commands: any, siletCommands: any) {
+    execute(commands: any, siletCommands: any) {
+        commands.set("programs", Programs);
+        commands.set("meme", Meme);
+        commands.set("translate", Translate);
+        commands.set("help", Help);
+        commands.set("security", TotalAttacksBlocked);
+        commands.set("project", ProjectIdeas);
+        commands.set("pets", Pets);
 
-    commands.set("programs", Programs);
-    commands.set("meme", Meme);
-    commands.set("translate", Translate);
-    commands.set("help", Help);
-    commands.set("security", TotalAttacksBlocked);
-    commands.set("project", ProjectIdeas);
-    commands.set("pets", Pets);
+        siletCommands.set("scam detector", ScamDetector);
+        siletCommands.set("gnt detector", GenderNeutralTerms);
 
-    siletCommands.set("scam detector", ScamDetector);
-    siletCommands.set("gnt detector", GenderNeutralTerms);
-
-    return [commands, siletCommands];
-  }
-}
+        return [commands, siletCommands];
+    }
+};

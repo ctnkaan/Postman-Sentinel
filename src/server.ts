@@ -1,7 +1,6 @@
 //<> with ❤️ by Çetin Kaan Taşkıngenç & Claire Froelich
 
 import { Client, GatewayIntentBits, Partials } from "discord.js";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 import config from "./config";
@@ -29,7 +28,7 @@ let commands = new Map();
 let silentCommands = new Map();
 
 //When the bot is connected
-bot.on("ready", async () => {
+bot.on("ready", () => {
     [commands, silentCommands] = CommandMap.execute(commands, silentCommands);
     Ready.execute(bot, config.prefix);
 });

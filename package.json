@@ -5,7 +5,7 @@
     "main": "src/server.ts",
     "scripts": {
         "dev": "nodemon",
-        "start": "node dist/server.js",
+        "start": "tsc && node dist/server.js",
         "build": "tsc",
         "format": "prettier --write ."
     },

@@ -3,17 +3,25 @@ import Schema from "../database/schema";
 import { MessageType } from "../types/message";
 import Sanitize from "mongo-sanitize";
 
+const banned_words: string[] = [
+    "nitro",
+    "i leave from cs:go",
+    "mediafire",
+    "skyblade"
+];
+
+let isScamLink: boolean = false;
+
 export = {
     name: "scamLinkDetector",
     description: "Detects scam links",
     callback: (message: MessageType) => {
-        const banned_words: string[] = [
-            "nitro",
-            "i leave from cs:go",
-            "mediafire",
-            "skyblade"
-        ];
-        let isScamLink: boolean = false;
+
+        //if message author has admin perms, return
+        if (message.member.permissions.has("ADMINISTRATOR")) {
+            console.log("Admin detected, returning");
+            return;
+        }
 
         //search spam word in message.content
         for (let banned_word of banned_words) {

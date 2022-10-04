@@ -1,5 +1,7 @@
+import { MessageType } from "../types/message";
+
 export = {
-    execute(message, commands, silentCommands, prefix) {
+    execute(message: MessageType, commands, silentCommands, prefix) {
         //Ignore bot messages
         if (message.author.bot) return;
 

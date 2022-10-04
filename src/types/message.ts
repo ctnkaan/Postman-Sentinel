@@ -10,5 +10,6 @@ export interface MessageType {
         id: string;
         send: (message: string | object) => void;
     };
+    member: any;
     delete: () => void;
 }

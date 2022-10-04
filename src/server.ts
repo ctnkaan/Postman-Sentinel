@@ -19,7 +19,8 @@ const bot = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildBans,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
     ],
     partials: [Partials.Channel]
 });

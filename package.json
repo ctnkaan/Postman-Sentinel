@@ -19,7 +19,7 @@
         "fastest-levenshtein": "^1.0.16",
         "memejs": "^2.0.1",
         "mongo-sanitize": "^1.1.0",
-        "mongodb": "^4.10.0",
+        "mongodb": "^4.11.0",
         "mongoose": "^6.6.4",
         "yarn-upgrade-all": "^0.7.1"
     },

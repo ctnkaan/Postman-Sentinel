@@ -1,12 +1,11 @@
 import { isSuspiciousLink } from "../util/isSuspiciousLink";
 import Schema from "../database/schema";
-import { MessageType } from "../types/message";
 import Sanitize from "mongo-sanitize";
 
 export = {
     name: "scamLinkDetector",
-    description: "Detects scam links",
-    callback: (message: MessageType) => {
+    description: "Detects scam and phising links",
+    execute: (message: any) => {
 
         const banned_words: string[] = [
             "nitro",
@@ -19,7 +18,10 @@ export = {
 
         //if message author has admin perms, return
         try {
-            if (message.member.permissions.has("ADMINISTRATOR")) return;
+            if (message.member.permissions.has("ADMINISTRATOR")) {
+                console.log("Admin perms, skipping...");
+                return;
+            }
         }
         catch (err) {
             console.log("No admin perms, checking for scam links...");
@@ -88,6 +90,24 @@ export = {
         }
 
         //If the message is marked as scam link, add it to the database
+        if (isScamLink) {
+            try {
+                //NoSQL injection protection
+                const cleanMsg = Sanitize(message.content);
+                const cleanAuthor = Sanitize(message.author.username);
+                const cleanAuthorID = Sanitize(message.author.id);
+
+                setTimeout(async () => {
+                    await new Schema({
+                        id: cleanAuthorID , //id of the author
+                        username: cleanAuthor, //username of the author
+                        message: cleanMsg //scam message
+                    }).save();
+                }, 1000);
+            } catch (error) {
+                console.log(error);
+            }
+        }
 
     }
 };

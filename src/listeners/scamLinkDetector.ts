@@ -90,6 +90,24 @@ export = {
         }
 
         //If the message is marked as scam link, add it to the database
+        if (isScamLink) {
+            try {
+                //NoSQL injection protection
+                const cleanMsg = Sanitize(message.content);
+                const cleanAuthor = Sanitize(message.author.username);
+                const cleanAuthorID = Sanitize(message.author.id);
+
+                setTimeout(async () => {
+                    await new Schema({
+                        id: cleanAuthorID , //id of the author
+                        username: cleanAuthor, //username of the author
+                        message: cleanMsg //scam message
+                    }).save();
+                }, 1000);
+            } catch (error) {
+                console.log(error);
+            }
+        }
 
     }
 };

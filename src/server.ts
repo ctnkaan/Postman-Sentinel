@@ -74,6 +74,10 @@ bot.on(Events.MessageCreate, async (message: any) => {
 	if (message.channel.type === "dm") return;
 
 	scamLinkDetector.execute(message);
+
+	if (message.content.startsWith("!p")) {
+		await message.reply("Hello! I've migrated to slash (/) commands. Please use / to see all of my commands.")
+	};
 });
 
 

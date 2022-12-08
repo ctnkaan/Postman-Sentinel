@@ -1,12 +1,13 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, InteractionCollector, SlashCommandBuilder } from "discord.js";
 import Schema from "../database/schema";
 import { MessageType } from "../types/message";
 
 export = {
-    name: "security",
-    description: "Displays the total number of attacks blocked",
-    callback(message: MessageType, args: string) {
-        Schema.countDocuments({}, (err, count: number) => {
+    data: new SlashCommandBuilder()
+        .setName("security")
+        .setDescription("Sends the total number of attacks blocked"),
+    async execute(interaction: any) {
+        await Schema.countDocuments({}, (err, count: number) => {
             if (err) console.log(err);
             else {
                 const msg = new EmbedBuilder()
@@ -16,7 +17,7 @@ export = {
                     .setDescription(count.toString())
                     .setTimestamp();
 
-                message.channel.send({ embeds: [msg] });
+                interaction.reply({ embeds: [msg] });
             }
         });
     }

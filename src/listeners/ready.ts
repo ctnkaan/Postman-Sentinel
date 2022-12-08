@@ -8,6 +8,4 @@ export = {
 
         bot.user.setActivity(`Prevented over 900+ phishing attacks!`);
     }
-
-    
 };

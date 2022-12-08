@@ -14,6 +14,7 @@ import Ready from "./listeners/ready";
 
 //types
 import { MessageType } from "./types/message";
+import scamLinkDetector from "./listeners/scamLinkDetector";
 
 const bot = new Client({
     intents: [
@@ -67,5 +68,13 @@ bot.on(Events.InteractionCreate, async (interaction: any) => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
+bot.on(Events.MessageCreate, async (message: any) => {
+	if (message.author.bot) return;
+	if (message.channel.type === "dm") return;
+
+	scamLinkDetector.execute(message);
+});
+
 
 bot.login(process.env.DISCORD_TOKEN);

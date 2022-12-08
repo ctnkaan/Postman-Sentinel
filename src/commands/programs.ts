@@ -1,10 +1,11 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 import { MessageType } from "../types/message";
 
 export = {
-    name: "programs",
-    description: "List all programs",
-    callback(message: MessageType, args: string) {
+    data: new SlashCommandBuilder()
+        .setName("programs")
+        .setDescription("Displays the Postman Student Community Programs"),
+    execute(interaction: any) {
         const msg = new EmbedBuilder()
             .setColor("#c7651a")
             .setTitle("Postman Student Community")
@@ -28,6 +29,6 @@ export = {
             )
             .setTimestamp();
 
-        message.channel.send({ embeds: [msg] });
+        interaction.reply({ embeds: [msg] });
     }
 };

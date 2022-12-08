@@ -1,4 +1,4 @@
-import Programs from "./programs";
+import Programs from "../oldCommands/programs";
 import Translate from "./translate";
 import Meme from "./meme";
 import Security from "./totalAttacksBlocked";

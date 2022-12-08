@@ -1,5 +1,5 @@
 import { distance } from "fastest-levenshtein";
-import config from "../config";
+import config from "../config.json";
 
 /** Most spam links try to typosquat 'discord' to trick users into thinking the link is safe (ex: "discorde")*/
 const TYPOSQUAT_TARGET = ["discord"];

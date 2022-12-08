@@ -5,7 +5,7 @@ export = {
     data: new SlashCommandBuilder()
         .setName("programs")
         .setDescription("Displays the Postman Student Community Programs"),
-    execute(interaction: any) {
+    async execute(interaction: any) {
         const msg = new EmbedBuilder()
             .setColor("#c7651a")
             .setTitle("Postman Student Community")
@@ -29,6 +29,6 @@ export = {
             )
             .setTimestamp();
 
-        interaction.reply({ embeds: [msg] });
+        await interaction.reply({ embeds: [msg] });
     }
 };

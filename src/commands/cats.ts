@@ -7,7 +7,7 @@ export = {
         .setName("cat")
         .setDescription("Sends a random cat picture"),
     async execute (interaction: any) {
-        meme("cats")
+        await meme("cats")
             .then((data: MemeType) => {
                 const msg = new EmbedBuilder()
                     .setColor("#c7651a")
@@ -17,9 +17,9 @@ export = {
 
                 interaction.reply({ embeds: [msg] });
             }) // Get the JSON output
-            .catch((e) => {
+            .catch(async (e) => {
                 console.log(e);
-                meme("cats")
+                await meme("cats")
                     .then((data) => {
                         const msg = new EmbedBuilder()
                             .setColor("#c7651a")
@@ -27,10 +27,10 @@ export = {
                             .setImage(data.url)
                             .setTimestamp();
 
-                        interaction.channel.send({ embeds: [msg] });
+                        interaction.reply({ embeds: [msg] });
                     })
-                    .catch((e) =>
-                        interaction.reply(
+                    .catch(async (e) =>
+                        await interaction.reply(
                             "Sorry I could not find any pictures. Would you like to try again?"
                         )
                     );

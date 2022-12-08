@@ -6,7 +6,7 @@ export = {
     data: new SlashCommandBuilder()
         .setName("project")
         .setDescription("Sends a random project idea"),
-    execute(interaction: any) {
+    async execute(interaction: any) {
         const randomValue = Math.floor(Math.random() * Project.length);
         const projectName = Project[randomValue].name;
         const projectDescription = Project[randomValue].description;
@@ -22,6 +22,6 @@ export = {
             })
             .setTimestamp();
 
-        interaction.reply({ embeds: [msg] });
+        await interaction.reply({ embeds: [msg] });
     }
 };

@@ -7,8 +7,8 @@ export = {
     data: new SlashCommandBuilder()
     .setName('meme')
     .setDescription('Sends a random meme from r/programmerhumor'),
-    execute(interaction: any) {
-        meme("programmerhumor")
+    async execute(interaction: any) {
+        await meme("programmerhumor")
             .then((data: MemeType) => {
                 const msg = new EmbedBuilder()
                     .setColor("#c7651a")
@@ -18,9 +18,9 @@ export = {
 
                 interaction.reply({ embeds: [msg] });
             }) // Get the JSON output
-            .catch((e) => {
+            .catch(async (e) => {
                 console.log(e);
-                meme("programmerhumor")
+                await meme("programmerhumor")
                     .then((data) => {
                         const msg = new EmbedBuilder()
                             .setColor("#c7651a")
@@ -30,8 +30,8 @@ export = {
 
                         interaction.reply({ embeds: [msg] });
                     })
-                    .catch((e) =>
-                        interaction.reply(
+                    .catch(async (e) =>
+                        await interaction.reply(
                             "Sorry I could not find any memes. Would you like to try again?"
                         )
                     );

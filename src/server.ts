@@ -46,7 +46,7 @@ for (const file of commandFiles) {
 
 //When the bot is connected
 bot.once(Events.ClientReady, () => {
-    Ready.execute(bot, config.prefix);
+    Ready.execute(bot);
 });
 
 bot.on(Events.InteractionCreate, async (interaction: any) => {

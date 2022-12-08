@@ -1,12 +1,12 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 import { meme } from "memejs";
-import { MessageType } from "../types/message";
 import { MemeType } from "../types/meme";
 
 export = {
-    name: "pets",
-    description: "Generates a cute pet image",
-    callback(message: MessageType, args: string) {
+    data: new SlashCommandBuilder()
+        .setName("cat")
+        .setDescription("Sends a random cat picture"),
+    async execute (interaction: any) {
         meme("cats")
             .then((data: MemeType) => {
                 const msg = new EmbedBuilder()
@@ -15,7 +15,7 @@ export = {
                     .setImage(data.url)
                     .setTimestamp();
 
-                message.channel.send({ embeds: [msg] });
+                interaction.reply({ embeds: [msg] });
             }) // Get the JSON output
             .catch((e) => {
                 console.log(e);
@@ -27,10 +27,10 @@ export = {
                             .setImage(data.url)
                             .setTimestamp();
 
-                        message.channel.send({ embeds: [msg] });
+                        interaction.channel.send({ embeds: [msg] });
                     })
                     .catch((e) =>
-                        message.channel.send(
+                        interaction.reply(
                             "Sorry I could not find any pictures. Would you like to try again?"
                         )
                     );

@@ -5,7 +5,7 @@ import Security from "./totalAttacksBlocked";
 import ProjectIdeas from "./projectIdeas";
 import { MessageType } from "../types/message";
 import { EmbedBuilder } from "discord.js";
-import Pets from "./pets";
+import Pets from "../commands/pets";
 
 export = {
     name: "help",
@@ -35,10 +35,6 @@ export = {
                 {
                     name: "!p " + ProjectIdeas.name,
                     value: ProjectIdeas.description
-                },
-                {
-                    name: "!p " + Pets.name,
-                    value: Pets.description
                 },
                 {
                     name: "!p help",

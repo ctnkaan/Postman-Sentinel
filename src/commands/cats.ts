@@ -7,33 +7,35 @@ export = {
         .setName("cat")
         .setDescription("Sends a random cat picture"),
     async execute (interaction: any) {
+
+        let msg = new EmbedBuilder();
+
         await meme("cats")
             .then((data: MemeType) => {
-                const msg = new EmbedBuilder()
-                    .setColor("#c7651a")
-                    .setTitle(data.title)
-                    .setImage(data.url)
-                    .setTimestamp();
+                msg.setColor("#c7651a")
+                .setTitle(data.title)
+                .setImage(data.url)
+                .setTimestamp();
 
-                interaction.reply({ embeds: [msg] });
             }) // Get the JSON output
-            .catch(async (e) => {
+            .catch((e) => {
                 console.log(e);
-                await meme("cats")
+                meme("cats")
                     .then((data) => {
-                        const msg = new EmbedBuilder()
-                            .setColor("#c7651a")
+                        msg.setColor("#c7651a")
                             .setTitle(data.title)
                             .setImage(data.url)
                             .setTimestamp();
 
-                        interaction.reply({ embeds: [msg] });
                     })
-                    .catch(async (e) =>
-                        await interaction.reply(
-                            "Sorry I could not find any pictures. Would you like to try again?"
-                        )
+                    .catch((e) =>
+                        msg.setColor("#c7651a")
+                            .setTitle("Error")
+                            .setDescription("Something went wrong")
+                            .setTimestamp()
                     );
             }); // Handle any errors
+
+        await interaction.reply({ embeds: [msg] });
     }
 };

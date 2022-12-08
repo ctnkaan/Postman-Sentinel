@@ -7,18 +7,20 @@ export = {
         .setName("security")
         .setDescription("Sends the total number of attacks blocked"),
     async execute(interaction: any) {
-        await Schema.countDocuments({}, (err, count: number) => {
-            if (err) console.log(err);
-            else {
-                const msg = new EmbedBuilder()
-                    .setColor("#c7651a")
-                    .setTitle("Total Attacks Blocked")
-                    .setURL("https://github.com/ctnkaan/Postman-Student-Helper")
-                    .setDescription(count.toString())
-                    .setTimestamp();
 
-                interaction.reply({ embeds: [msg] });
-            }
-        });
+        //count the number of messages in mongoDb database
+        const sum = await Schema.countDocuments({});
+        
+
+        let msg = new EmbedBuilder();
+
+        msg.setColor("#c7651a")
+            .setTitle("Total attacks blocked")
+            .setDescription(`Total attacks blocked: ${sum}`)
+            .setTimestamp();
+
+
+
+        await interaction.reply({ embeds: [msg] });
     }
 };

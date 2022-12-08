@@ -52,7 +52,7 @@ bot.once(Events.ClientReady, () => {
 
 bot.on(Events.InteractionCreate, async (interaction: any) => {
     if (!interaction.isChatInputCommand()) return;
-	console.log(interaction);
+	//console.log(interaction);
 
     const command = interaction.client.commands.get(interaction.commandName);
 

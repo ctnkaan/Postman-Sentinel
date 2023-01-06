@@ -1,4 +1,4 @@
-import Project from "../projectIdeas.json";
+import Project from "../util/projectIdeas.json";
 import { MessageType } from "../types/message";
 import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
 

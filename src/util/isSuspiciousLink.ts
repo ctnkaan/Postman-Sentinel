@@ -15,7 +15,6 @@ function isSuspiciousLink(link: string, threshold = 4) {
     if (config.whitelist.includes(base)) return false;
 
     // check levenshtein distance of domain to all typosquat targets
-
     TYPOSQUAT_TARGET.forEach((element) => {
         const d = distance(element, base);
         // if distance is > 0 and < threshold, base is typosquating. Call foul

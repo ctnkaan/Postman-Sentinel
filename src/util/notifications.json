@@ -1,0 +1,4 @@
+{
+    "bannedWordNotification": "Hello! Word you used is banned due to ongoing scams. I've deleted the last message you sent.",
+    "suspicousLinkNotification": "---------------------\n🚨WARNING🚨: One or more suspicious looking links associated with spam was sent from your account in the Postman Student Community Server If you didn't intentionally send these links, there is a change your account was hacked and is sending out malicious messages. In this case, **please change your password and enable two-factor authentication on your Discord account**.\n\nThis bot is still on development and might detect false positives. If you think the link you sent was not suspicious be sure to contact the staff or developers."
+}

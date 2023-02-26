@@ -20,8 +20,8 @@
         "memejs": "^2.0.1",
         "mongo-sanitize": "^1.1.0",
         "mongodb": "^4.13.0",
-        "mongoose": "^6.7.4",
-        "yarn-upgrade-all": "^0.7.2"
+        "mongoose": "^6.8.2",
+        "yarn-upgrade-all": "^0.7.1"
     },
     "devDependencies": {
         "@types/mongo-sanitize": "^1.0.1",

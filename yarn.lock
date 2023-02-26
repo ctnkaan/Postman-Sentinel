@@ -913,12 +913,12 @@ binary-extensions@^2.0.0:
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-bing-translate-api@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/bing-translate-api/-/bing-translate-api-2.6.0.tgz#94fdd75cc8322981b18d8948ee6456f959b7d3db"
-  integrity sha512-7u/XebSILZo/F9vMVaR8V1jjpeAMkE/cq3JtBdTrCurbgOrUpLsNTPjeJkQMgz6YcxY9vaxOvuZR3tgQ62nDtw==
+bing-translate-api@^2.7.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/bing-translate-api/-/bing-translate-api-2.8.0.tgz#d229321e07c7978933af63fc34c8e9c51726a192"
+  integrity sha512-7mwBdlfB50kS+zFrEicg0I72I84/zrTTEH87AZyznriei1mwaOUqlcra6aVjGYDFUusdVU4ioTDSxr343ViOkg==
   dependencies:
-    got "^11.8.3"
+    got "^11.8.5"
 
 bowser@^2.11.0:
   version "2.11.0"
@@ -1130,10 +1130,10 @@ glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-got@^11.8.3:
-  version "11.8.3"
-  resolved "https://registry.yarnpkg.com/got/-/got-11.8.3.tgz#f496c8fdda5d729a90b4905d2b07dbd148170770"
-  integrity sha512-7gtQ5KiPh1RtGS9/Jbv1ofDpBFuq42gyfEib+ejaRBJuj/3tQFeR5+gw57e4ipaU8c/rCjvX6fkQz2lyDlGAOg==
+got@^11.8.5:
+  version "11.8.6"
+  resolved "https://registry.yarnpkg.com/got/-/got-11.8.6.tgz#276e827ead8772eddbcfc97170590b841823233a"
+  integrity sha512-6tfZ91bOr7bOXnK7PRDCGBLa1H4U080YHNaAQ2KsMGlLEzRbk44nsZF2E1IeRc3vtJHPVbKCYgdFbaGO2ljd8g==
   dependencies:
     "@sindresorhus/is" "^4.0.0"
     "@szmarczak/http-timer" "^4.0.5"
@@ -1699,10 +1699,10 @@ ws@^8.11.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.11.0.tgz#6a0d36b8edfd9f96d8b25683db2f8d7de6e8e143"
   integrity sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==
 
-yarn-upgrade-all@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/yarn-upgrade-all/-/yarn-upgrade-all-0.7.1.tgz#167a5a78127c7051c4ed15396bd5f68e3b5cc744"
-  integrity sha512-KoYfSs8jGH5fp4+12ezF3uMMIxx70X8l9efmUvsI0KQmmF4nVssEmXw4Q2aZVrRZHF30b3+cyzMIp8iU6sb9aw==
+yarn-upgrade-all@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/yarn-upgrade-all/-/yarn-upgrade-all-0.7.2.tgz#5d2afa9230661c55f22d3f848f22258db732ae20"
+  integrity sha512-iVxmoBuNdpxeahAIehJ039Pp6S8zQ/qTENQRMV5hp7x/2tLGUzytCODIKZFjfUwcRRKT3boGgHheUEWC7+VlQw==
 
 yn@3.1.1:
   version "3.1.1"

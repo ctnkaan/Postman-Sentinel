@@ -1,8 +1,8 @@
 <p align="center">
-	<img src="./assets/icon.png" width=400px height=300px>
-	<h1 align="center"> Postman Student Helper </h1>
+	<img src="./assets/Sentinel.png" width=540px height=540px>
+	<h1 align="center"> Postman Sentinel </h1>
 		<p align="center">
-			<b>This is the main repository of the Postman Student Helper Discord Bot. </b> 
+			<b>This is the main repository of the Postman Sentinel Discord Bot. </b> 
 		</p>  
 </p>
 

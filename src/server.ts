@@ -52,7 +52,6 @@ bot.once(Events.ClientReady, () => {
 
 bot.on(Events.InteractionCreate, async (interaction: any) => {
     if (!interaction.isChatInputCommand()) return;
-	//console.log(interaction);
 
     const command = interaction.client.commands.get(interaction.commandName);
 
@@ -62,10 +61,10 @@ bot.on(Events.InteractionCreate, async (interaction: any) => {
 	}
 
 	try {
-		await command.execute(interaction);
+		await command.execute(interaction); 
 	} catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true});
 	}
 });
 

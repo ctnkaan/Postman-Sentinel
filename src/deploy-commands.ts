@@ -27,6 +27,8 @@ const rest = new REST({ version: '10' }).setToken(token);
 			{ body: commands },
 		);
 
+		console.log(data)
+
 		//@ts-ignore-next-line
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
 	} catch (error) {

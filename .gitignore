@@ -3,3 +3,5 @@ node_modules
 dist
 *.log
 config.json
+getallData.ts
+data.json
